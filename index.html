@@ -1,1 +1,22 @@
-<h1> Hello World!</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Testing</title>
+</head>
+<body>
+  <h1>Data Visitor</h1>
+  <p id="ip"></p>
+  <p id="city"></p>
+  <p id="loc"></p>
+
+  <script>
+    fetch("https://ipapi.co/json/")
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("ip").textContent = "IP: " + data.ip;
+        document.getElementById("city").textContent = "Kota: " + data.city + ", " + data.country_name;
+        document.getElementById("loc").textContent = "Koordinat: " + data.latitude + ", " + data.longitude;
+      });
+  </script>
+</body>
+</html>
